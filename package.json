@@ -1,0 +1,14 @@
+{
+  "name": "portafolio-jairo-sierra",
+  "private": true,
+  "description": "Sitio central del portafolio: Inicio + rewrites a la Sala de espera y al Radar",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/servidor-local.mjs",
+    "verificar": "node scripts/verificar.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "playwright": "1.63.0"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "echo 'Sitio estatico: no necesita instalar dependencias'",
+  "buildCommand": "echo 'Sitio estatico: se publica web/ tal cual'",
+  "outputDirectory": "web",
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/sala", "destination": "/sala/", "permanent": false },
+    { "source": "/radar", "destination": "/radar/", "permanent": false },
+    { "source": "/api", "destination": "https://datos-abiertos-citas-api.onrender.com/", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/sala/:path*", "destination": "https://sala-de-espera-bice.vercel.app/:path*" },
+    { "source": "/radar/:path*", "destination": "https://radar-gov-co.vercel.app/:path*" }
+  ]
+}

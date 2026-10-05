@@ -1,0 +1,96 @@
+{
+  "fecha": "2026-10-05T21:59:16.975Z",
+  "modo": "local",
+  "axe": [
+    {
+      "width": 390,
+      "scheme": "light",
+      "lang": "es",
+      "violaciones": 0,
+      "reglas": []
+    },
+    {
+      "width": 390,
+      "scheme": "light",
+      "lang": "en",
+      "violaciones": 0,
+      "reglas": []
+    },
+    {
+      "width": 1280,
+      "scheme": "light",
+      "lang": "es",
+      "violaciones": 0,
+      "reglas": []
+    },
+    {
+      "width": 1280,
+      "scheme": "light",
+      "lang": "en",
+      "violaciones": 0,
+      "reglas": []
+    },
+    {
+      "width": 390,
+      "scheme": "dark",
+      "lang": "es",
+      "violaciones": 0,
+      "reglas": []
+    },
+    {
+      "width": 390,
+      "scheme": "dark",
+      "lang": "en",
+      "violaciones": 0,
+      "reglas": []
+    },
+    {
+      "width": 1280,
+      "scheme": "dark",
+      "lang": "es",
+      "violaciones": 0,
+      "reglas": []
+    },
+    {
+      "width": 1280,
+      "scheme": "dark",
+      "lang": "en",
+      "violaciones": 0,
+      "reglas": []
+    }
+  ],
+  "rutas": [
+    {
+      "ruta": "/sala",
+      "width": 390,
+      "final": "/sala/",
+      "titulo": "La sala de espera · Oportunidad de citas en Colombia",
+      "estilos": 2,
+      "rotos": []
+    },
+    {
+      "ruta": "/sala",
+      "width": 1280,
+      "final": "/sala/",
+      "titulo": "La sala de espera · Oportunidad de citas en Colombia",
+      "estilos": 2,
+      "rotos": []
+    },
+    {
+      "ruta": "/radar",
+      "width": 390,
+      "final": "/radar/",
+      "titulo": "Radar .gov.co · Accesibilidad de 30 portales públicos de Colombia",
+      "estilos": 5,
+      "rotos": []
+    },
+    {
+      "ruta": "/radar",
+      "width": 1280,
+      "final": "/radar/",
+      "titulo": "Radar .gov.co · Accesibilidad de 30 portales públicos de Colombia",
+      "estilos": 5,
+      "rotos": []
+    }
+  ]
+}

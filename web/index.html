@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jairo Sierra · Backend, Datos y QA</title>
+  <meta name="description" content="Portafolio de Jairo Andrés Sierra: una API de datos abiertos, un dashboard de oportunidad de citas y una auditoría semanal de accesibilidad de portales públicos de Colombia. Backend, data and QA portfolio.">
+  <meta name="theme-color" content="#1A1D21">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jairo Sierra">
+  <meta property="og:title" content="Jairo Sierra · Backend, Datos y QA">
+  <meta property="og:description" content="Tres proyectos conectados sobre datos públicos de Colombia: API, dashboard y radar de accesibilidad. ES/EN.">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Atkinson+Hyperlegible+Mono:wght@400;700&family=Overpass:wght@800;900&display=swap">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="ja-base">
+  <a class="skip" href="#contenido" data-i18n="skip">Saltar al contenido</a>
+
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Jairo Sierra, inicio" data-i18n-aria="brandLabel">
+      <img class="brand-mark" src="favicon.svg" alt="" width="40" height="40">
+      <span class="brand-name">Jairo Sierra</span>
+    </a>
+    <button class="lang" type="button" id="lang-toggle" lang="en" aria-label="Read in English">EN</button>
+    <nav class="tabs" aria-label="Proyectos" data-i18n-aria="navLabel">
+      <ul>
+        <li><a href="/" aria-current="page" data-i18n="tabHome">Inicio</a></li>
+        <li><a href="https://datos-abiertos-citas-api.onrender.com" data-lang-link><span class="ja-bullet ja-bullet--b" aria-hidden="true">B</span> API</a></li>
+        <li><a href="/sala/" data-lang-link><span class="ja-bullet ja-bullet--d" aria-hidden="true">D</span> <span data-i18n="tabSala">Sala de espera</span></a></li>
+        <li><a href="/radar/" data-lang-link><span class="ja-bullet ja-bullet--q" aria-hidden="true">Q</span> Radar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero ja-topo" aria-labelledby="hero-title">
+      <p class="ja-label eyebrow" data-i18n="eyebrow">Ingeniería de Sistemas · Pontificia Universidad Javeriana · Bogotá</p>
+      <h1 id="hero-title" class="ja-display" data-i18n-html="heroTitle">Tres líneas, un mismo sistema: <span class="hl-b">backend</span>, <span class="hl-d">datos</span> y <span class="hl-q">QA</span>.</h1>
+      <p class="lead" data-i18n="lead">Soy Jairo Andrés Sierra, estudiante de último semestre de Ingeniería de Sistemas. Busco mi primer rol junior como desarrollador Backend, QA Automation o Analista de Datos.</p>
+      <p class="lead lead-2" data-i18n="lead2">Estos tres proyectos trabajan con datos públicos de Colombia y están conectados: una API que unifica datos abiertos, un dashboard que los explica y un radar que audita portales del Estado.</p>
+      <div class="hero-actions">
+        <a class="ja-btn ja-btn--primary ja-btn--lg" href="#rutas" data-i18n="ctaRoutes">Ver las tres rutas</a>
+        <a class="ja-btn ja-btn--secondary ja-btn--lg" href="https://www.linkedin.com/in/jairo-andres31-analyst" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+
+    <section class="map" aria-labelledby="map-title">
+      <h2 id="map-title" class="ja-label" data-i18n="mapTitle">Mapa de líneas</h2>
+      <ol class="line line--b" aria-label="Línea B, Backend" data-i18n-aria="lineB">
+        <li data-i18n="stB1">datos.gov.co</li>
+        <li data-i18n="stB2">ETL con pandas</li>
+        <li>PostgreSQL</li>
+        <li class="is-terminal">API FastAPI</li>
+      </ol>
+      <ol class="line line--d" aria-label="Línea D, Datos" data-i18n-aria="lineD">
+        <li>API FastAPI</li>
+        <li>React + Vite</li>
+        <li class="is-terminal" data-i18n="tabSala">Sala de espera</li>
+      </ol>
+      <ol class="line line--q" aria-label="Línea Q, QA" data-i18n-aria="lineQ">
+        <li data-i18n="stQ1">30 portales .gov.co</li>
+        <li>Playwright + axe + Lighthouse</li>
+        <li>GitHub Actions</li>
+        <li class="is-terminal" data-i18n="stQ4">Ranking semanal</li>
+      </ol>
+    </section>
+
+    <section class="routes" id="rutas" aria-labelledby="routes-title">
+      <h2 id="routes-title" class="ja-display" data-i18n="routesTitle">Las tres rutas</h2>
+
+      <article class="route route--b ja-card ja-card--raised" aria-labelledby="r-b">
+        <p class="ja-label route-kicker"><span class="ja-bullet ja-bullet--b" aria-hidden="true">B</span> <span data-i18n="kickerB">Línea B · Backend</span></p>
+        <h3 id="r-b" data-i18n="titleB">API de oportunidad de citas</h3>
+        <p data-i18n="sumB">Algunos hospitales públicos publican en datos.gov.co cuántos días espera un paciente por una cita, cada uno con columnas, periodos y formatos distintos. Un ETL en pandas los descarga, limpia y unifica (junto con el archivo Clicsalud 2016–2021) y una API REST los sirve.</p>
+        <ul class="stack" aria-label="Tecnologías" data-i18n-aria="stack">
+          <li>FastAPI</li><li>PostgreSQL · Supabase</li><li>pandas</li><li>Docker</li><li>pytest</li><li>GitHub Actions</li><li>Render</li>
+        </ul>
+        <p class="ja-card__meta" data-i18n="noteB">Plan gratis: la primera petición puede tardar hasta un minuto mientras la API despierta.</p>
+        <div class="route-links">
+          <a class="ja-btn ja-btn--primary" href="https://datos-abiertos-citas-api.onrender.com" data-i18n="demoB">Abrir la API</a>
+          <a class="ja-btn ja-btn--secondary" href="https://datos-abiertos-citas-api.onrender.com/docs" data-i18n="docsB">Documentación</a>
+          <a class="ja-btn ja-btn--ghost" href="https://github.com/Jairo-Andres/datos-abiertos-citas-api" data-i18n="repo">Código en GitHub</a>
+        </div>
+      </article>
+
+      <article class="route route--d ja-card ja-card--raised" aria-labelledby="r-d">
+        <p class="ja-label route-kicker"><span class="ja-bullet ja-bullet--d" aria-hidden="true">D</span> <span data-i18n="kickerD">Línea D · Datos</span></p>
+        <h3 id="r-d" data-i18n="titleD">La sala de espera</h3>
+        <p data-i18n="sumD">Un dashboard que consume la API y muestra cuántos días espera un paciente por una cita médica, según lo que publica cada hospital: turnero, relojes, una silla por cada día de espera y gráficos explorables, sin sacar conclusiones que los datos no sostienen.</p>
+        <ul class="stack" aria-label="Tecnologías" data-i18n-aria="stack">
+          <li>React</li><li>Vite</li><li>Tailwind CSS</li><li>Vitest</li><li>Vercel</li>
+        </ul>
+        <div class="route-links">
+          <a class="ja-btn ja-btn--primary" href="/sala/" data-lang-link data-i18n="demoD">Entrar a la sala</a>
+          <a class="ja-btn ja-btn--ghost" href="https://github.com/Jairo-Andres/sala-de-espera" data-i18n="repo">Código en GitHub</a>
+        </div>
+      </article>
+
+      <article class="route route--q ja-card ja-card--raised" aria-labelledby="r-q">
+        <p class="ja-label route-kicker"><span class="ja-bullet ja-bullet--q" aria-hidden="true">Q</span> <span data-i18n="kickerQ">Línea Q · QA</span></p>
+        <h3 id="r-q">Radar .gov.co</h3>
+        <p data-i18n="sumQ">Una auditoría semanal y automática de 30 portales públicos colombianos: accesibilidad (WCAG 2.1 AA), versión móvil, rendimiento y buenas prácticas, publicada como ranking. Solo tráfico de visitante normal: pocas páginas por sitio, con pausas y respetando robots.txt.</p>
+        <ul class="stack" aria-label="Tecnologías" data-i18n-aria="stack">
+          <li>Python</li><li>Playwright</li><li>axe-core</li><li>Lighthouse</li><li>pytest</li><li>GitHub Actions</li><li>Vercel</li>
+        </ul>
+        <div class="route-links">
+          <a class="ja-btn ja-btn--primary" href="/radar/" data-lang-link data-i18n="demoQ">Ver el radar</a>
+          <a class="ja-btn ja-btn--ghost" href="https://github.com/Jairo-Andres/radar-gov-co" data-i18n="repo">Código en GitHub</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><span data-i18n="footer1">Contacto:</span> <a href="https://www.linkedin.com/in/jairo-andres31-analyst" rel="noopener">linkedin.com/in/jairo-andres31-analyst</a> · <a href="https://github.com/Jairo-Andres" rel="noopener">github.com/Jairo-Andres</a></p>
+    <p class="fineprint" data-i18n="footer2">Identidad visual común "Rutas": cada proyecto es una línea con su color y su letra. Sitio estático en Vercel.</p>
+  </footer>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
