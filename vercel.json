@@ -11,6 +11,8 @@
     { "source": "/api", "destination": "https://datos-abiertos-citas-api.onrender.com/", "permanent": false }
   ],
   "rewrites": [
+    { "source": "/sala/", "destination": "https://sala-de-espera-bice.vercel.app/" },
+    { "source": "/radar/", "destination": "https://radar-gov-co.vercel.app/" },
     { "source": "/sala/:path*", "destination": "https://sala-de-espera-bice.vercel.app/:path*" },
     { "source": "/radar/:path*", "destination": "https://radar-gov-co.vercel.app/:path*" }
   ]
