@@ -108,3 +108,51 @@ document.getElementById("lang-toggle").addEventListener("click", () => {
   history.replaceState(null, "", url);
   apply(lang);
 });
+
+// Tren del mapa de líneas: va de estación en estación, se detiene en cada una y la marca
+// mientras está parado. Con "reducir movimiento" no se crea.
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+const horizontal = matchMedia("(min-width: 48rem)");
+const TRAVEL = 1800; // ms entre estaciones (igual que la transición de .train)
+const STOP = 1600;   // ms parado en cada estación
+
+function stationPoint(li) {
+  // Centro del círculo de la estación, relativo a la lista (ver .line li::before en styles.css)
+  return horizontal.matches ? [li.offsetLeft + 8, 12] : [12, li.offsetTop + 10];
+}
+
+function runLine(line, delay) {
+  const stops = [...line.querySelectorAll("li")];
+  const train = document.createElement("span");
+  train.className = "train";
+  train.setAttribute("aria-hidden", "true");
+  line.append(train);
+
+  let i = 0;
+  let dir = 1;
+  const place = (instant) => {
+    const [x, y] = stationPoint(stops[i]);
+    if (instant) train.style.transition = "none";
+    train.style.transform = `translate(${x}px, ${y}px)`;
+    if (instant) { train.offsetWidth; train.style.transition = ""; }
+  };
+  place(true);
+
+  const step = () => {
+    stops[i].classList.add("is-stop");
+    setTimeout(() => {
+      stops[i].classList.remove("is-stop");
+      if (i + dir < 0 || i + dir >= stops.length) dir = -dir;
+      i += dir;
+      place(false);
+      setTimeout(step, TRAVEL);
+    }, STOP);
+  };
+  setTimeout(step, delay);
+  horizontal.addEventListener("change", () => place(true));
+  addEventListener("resize", () => place(true));
+}
+
+if (!reduceMotion.matches) {
+  document.querySelectorAll(".map .line").forEach((line, n) => runLine(line, n * 900));
+}

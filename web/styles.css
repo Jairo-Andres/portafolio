@@ -96,19 +96,6 @@ main, .topbar, .footer { width: min(var(--content-max), 100% - 2 * var(--gutter)
 .line li.is-terminal { font-family: var(--font-display); font-weight: var(--weight-display); font-size: var(--text-md); }
 .line li.is-terminal::before { width: 1.25rem; height: 1.25rem; left: calc(-1 * var(--space-8) + 0.75rem - 0.625rem); top: 0.05rem; background: var(--c); border-color: var(--color-fg); border-width: 3px; }
 
-/* El tren: un punto que recorre cada línea (solo si el usuario acepta movimiento) */
-@media (prefers-reduced-motion: no-preference) {
-  .line::after {
-    content: ""; position: absolute; left: calc(0.75rem - 0.3rem); top: 0.6rem;
-    width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--color-bg);
-    box-shadow: 0 0 0 2px var(--c);
-    animation: tren-v 7s var(--ease-in-out) infinite alternate;
-  }
-  .line--d::after { animation-delay: -2.3s; }
-  .line--q::after { animation-delay: -4.6s; }
-}
-@keyframes tren-v { to { top: calc(100% - 1.2rem); } }
-@keyframes tren-h { to { left: calc(100% - 0.6rem); } }
 
 /* ---- Rutas (tarjetas de proyecto) ---- */
 .routes { display: grid; gap: var(--space-6); padding: var(--space-6) 0 var(--space-16); }
@@ -146,9 +133,6 @@ main, .topbar, .footer { width: min(var(--content-max), 100% - 2 * var(--gutter)
   .routes h2 { grid-column: 1 / -1; }
   .route { grid-template-rows: auto auto 1fr auto auto; }
 }
-@media (min-width: 48rem) and (prefers-reduced-motion: no-preference) {
-  .line::after { top: calc(0.75rem - 0.3rem); left: 0.5rem; animation-name: tren-h; }
-}
 
 /* ==========================================================================
    v2: más carácter. Figura de mapa en la portada, tarjetas con borde de señal
@@ -158,8 +142,8 @@ main, .topbar, .footer { width: min(var(--content-max), 100% - 2 * var(--gutter)
 
 /* Bullet de transbordo: mitad B, mitad Q */
 .bullet-x {
-  background: linear-gradient(90deg, var(--route-b) 0 50%, var(--route-q) 50% 100%);
-  color: var(--on-route-b);
+  background: var(--route-x);
+  color: var(--on-route-x);
   letter-spacing: 0.02em;
 }
 
@@ -172,9 +156,9 @@ main, .topbar, .footer { width: min(var(--content-max), 100% - 2 * var(--gutter)
 .art-b { stroke: var(--route-b); }
 .art-d { stroke: var(--route-d); }
 .art-q { stroke: var(--route-q); }
-.art-x { stroke: var(--color-fg); stroke-width: 6; stroke-dasharray: 2 12; }
+.art-x { stroke: var(--route-x); stroke-width: 8; stroke-dasharray: 2 14; }
 .st { fill: var(--color-bg); stroke-width: 5; }
-.st-b { stroke: var(--route-b); } .st-d { stroke: var(--route-d); } .st-q { stroke: var(--route-q); } .st-x { stroke: var(--color-fg); }
+.st-b { stroke: var(--route-b); } .st-d { stroke: var(--route-d); } .st-q { stroke: var(--route-q); } .st-x { stroke: var(--route-x); }
 .hub { fill: var(--color-bg); stroke: var(--color-fg); stroke-width: 6; }
 .art-cota path { fill: none; stroke: var(--color-cota); stroke-width: 2.5; stroke-linejoin: round; }
 .art-labels text { font: 900 22px var(--font-display); fill: var(--color-fg); }
@@ -192,8 +176,7 @@ main, .topbar, .footer { width: min(var(--content-max), 100% - 2 * var(--gutter)
 }
 
 /* Línea de transbordo en el mapa: tramos B y Q alternados */
-.line--x { --c: var(--color-fg); }
-.line--x::before { background: repeating-linear-gradient(180deg, var(--route-b) 0 14px, var(--route-q) 14px 28px); }
+.line--x { --c: var(--route-x); --ink: var(--ink-x); }
 
 /* Tarjetas: borde de señal + sombra sólida del color de la línea */
 .route {
@@ -214,15 +197,13 @@ main, .topbar, .footer { width: min(var(--content-max), 100% - 2 * var(--gutter)
 }
 
 /* Estación de transbordo (MiTiendaW) */
-.route--x { --c: var(--route-q); border-top: 0; display: grid; gap: var(--space-6); padding-top: calc(var(--space-6) + var(--route-stroke)); }
+.route--x { --c: var(--route-x); border-top: 0; display: grid; gap: var(--space-6); padding-top: calc(var(--space-6) + var(--route-stroke)); }
 .route--x::after {
   content: ""; position: absolute; inset: 0 0 auto; height: var(--route-stroke);
-  background: repeating-linear-gradient(90deg, var(--route-b) 0 24px, var(--route-q) 24px 48px);
+  background: var(--route-x);
 }
-.route--x { box-shadow: 6px 6px 0 var(--route-b), 12px 12px 0 var(--route-q); }
-.route--x:hover { box-shadow: 8px 8px 0 var(--route-b), 14px 14px 0 var(--route-q); }
 .route-x-main { display: grid; gap: var(--space-4); align-content: start; }
-.route-x-rel { padding-left: var(--space-4); border-left: var(--route-stroke) solid var(--route-b); color: var(--color-fg); font-weight: var(--weight-bold); }
+.route-x-rel { padding-left: var(--space-4); border-left: var(--route-stroke) solid var(--route-x); color: var(--color-fg); font-weight: var(--weight-bold); }
 .tests-wrap { display: grid; gap: var(--space-3); align-content: start; }
 .tests-wrap h4 { margin: 0; }
 .tests { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); margin: 0; }
@@ -237,11 +218,31 @@ main, .topbar, .footer { width: min(var(--content-max), 100% - 2 * var(--gutter)
 }
 
 @media (min-width: 48rem) {
-  .line--x::before { background: repeating-linear-gradient(90deg, var(--route-b) 0 14px, var(--route-q) 14px 28px); }
   .route--x { grid-column: 1 / -1; grid-template-columns: 1.6fr 1fr; }
   .route--x .route-letter { font-size: 14rem; }
 }
 @media (min-width: 64rem) {
   .hero { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: center; column-gap: var(--space-10); }
   .hero-art { width: 100%; margin: 0; }
+}
+
+/* ==========================================================================
+   v3: BQ en verde y tren con paradas.
+   El verde sale de los tokens (--status-good): pasa AA con su texto en claro y oscuro.
+   El tren lo mueve app.js de estación en estación; mientras está parado,
+   la estación se marca (círculo relleno y texto del color de la línea).
+   ========================================================================== */
+:root { --route-x: var(--status-good); --on-route-x: var(--on-route-b); --ink-x: var(--status-good); }
+.line--b { --ink: var(--ink-b); } .line--d { --ink: var(--ink-d); } .line--q { --ink: var(--ink-q); }
+
+.line li::before { transition: transform var(--duration-slow) var(--ease-out), background-color var(--duration-slow) var(--ease-out); }
+.line li { transition: color var(--duration-slow) var(--ease-out); }
+.line li.is-stop { color: var(--ink); }
+.line li.is-stop::before { background: var(--c); transform: scale(1.45); }
+
+.train {
+  position: absolute; left: 0; top: 0; z-index: 1;
+  width: 0.75rem; height: 0.75rem; margin: -0.375rem 0 0 -0.375rem; border-radius: 50%;
+  background: var(--color-fg); box-shadow: 0 0 0 3px var(--color-bg), 0 0 0 5px var(--c);
+  transition: transform 1.8s var(--ease-in-out); pointer-events: none;
 }
