@@ -149,3 +149,99 @@ main, .topbar, .footer { width: min(var(--content-max), 100% - 2 * var(--gutter)
 @media (min-width: 48rem) and (prefers-reduced-motion: no-preference) {
   .line::after { top: calc(0.75rem - 0.3rem); left: 0.5rem; animation-name: tren-h; }
 }
+
+/* ==========================================================================
+   v2: más carácter. Figura de mapa en la portada, tarjetas con borde de señal
+   y sombra sólida del color de su línea, letra grande de fondo y la estación
+   de transbordo B·Q (MiTiendaW). Solo colores de tokens.css.
+   ========================================================================== */
+
+/* Bullet de transbordo: mitad B, mitad Q */
+.bullet-x {
+  background: linear-gradient(90deg, var(--route-b) 0 50%, var(--route-q) 50% 100%);
+  color: var(--on-route-b);
+  letter-spacing: 0.02em;
+}
+
+/* Portada con figura */
+.hero { position: relative; overflow: hidden; border-bottom: var(--border-2) solid var(--color-fg); }
+.hero-text { display: grid; gap: var(--space-5); position: relative; z-index: 1; }
+.hero-art { width: min(100%, 22rem); justify-self: center; margin-top: var(--space-4); overflow: visible; }
+.art-grid circle { fill: none; stroke: var(--color-cota); stroke-opacity: 0.35; stroke-width: 1; stroke-dasharray: 3 6; }
+.art-line { fill: none; stroke-width: 14; stroke-linecap: round; stroke-linejoin: round; }
+.art-b { stroke: var(--route-b); }
+.art-d { stroke: var(--route-d); }
+.art-q { stroke: var(--route-q); }
+.art-x { stroke: var(--color-fg); stroke-width: 6; stroke-dasharray: 2 12; }
+.st { fill: var(--color-bg); stroke-width: 5; }
+.st-b { stroke: var(--route-b); } .st-d { stroke: var(--route-d); } .st-q { stroke: var(--route-q); } .st-x { stroke: var(--color-fg); }
+.hub { fill: var(--color-bg); stroke: var(--color-fg); stroke-width: 6; }
+.art-cota path { fill: none; stroke: var(--color-cota); stroke-width: 2.5; stroke-linejoin: round; }
+.art-labels text { font: 900 22px var(--font-display); fill: var(--color-fg); }
+@media (prefers-reduced-motion: no-preference) {
+  .art-x { animation: flujo 1.6s linear infinite; }
+  .hub { transform-box: fill-box; transform-origin: center; animation: latido 3.2s var(--ease-in-out) infinite; }
+}
+@keyframes flujo { to { stroke-dashoffset: -28; } }
+@keyframes latido { 50% { transform: scale(1.15); } }
+
+/* Títulos de sección con franja de las tres líneas */
+.routes h2::after {
+  content: ""; display: block; width: 7.5rem; height: var(--route-stroke); margin-top: var(--space-3); border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--route-b) 0 33.3%, var(--route-d) 33.3% 66.6%, var(--route-q) 66.6%);
+}
+
+/* Línea de transbordo en el mapa: tramos B y Q alternados */
+.line--x { --c: var(--color-fg); }
+.line--x::before { background: repeating-linear-gradient(180deg, var(--route-b) 0 14px, var(--route-q) 14px 28px); }
+
+/* Tarjetas: borde de señal + sombra sólida del color de la línea */
+.route {
+  position: relative; overflow: hidden; isolation: isolate;
+  border: var(--border-2) solid var(--color-fg); border-top: var(--route-stroke) solid var(--c);
+  box-shadow: 6px 6px 0 var(--c);
+  transition: transform var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out);
+}
+.route:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--c); }
+.route-letter {
+  position: absolute; z-index: -1; right: -0.05em; bottom: -0.22em;
+  font: var(--weight-black) 7rem / 1 var(--font-display); letter-spacing: -0.04em;
+  color: transparent; -webkit-text-stroke: 2px var(--c); opacity: 0.25; pointer-events: none;
+}
+.route::before {
+  content: ""; position: absolute; top: var(--space-4); right: var(--space-4); width: 1.1rem; height: 1.1rem;
+  border-radius: 50%; border: 4px solid var(--c); background: var(--color-bg);
+}
+
+/* Estación de transbordo (MiTiendaW) */
+.route--x { --c: var(--route-q); border-top: 0; display: grid; gap: var(--space-6); padding-top: calc(var(--space-6) + var(--route-stroke)); }
+.route--x::after {
+  content: ""; position: absolute; inset: 0 0 auto; height: var(--route-stroke);
+  background: repeating-linear-gradient(90deg, var(--route-b) 0 24px, var(--route-q) 24px 48px);
+}
+.route--x { box-shadow: 6px 6px 0 var(--route-b), 12px 12px 0 var(--route-q); }
+.route--x:hover { box-shadow: 8px 8px 0 var(--route-b), 14px 14px 0 var(--route-q); }
+.route-x-main { display: grid; gap: var(--space-4); align-content: start; }
+.route-x-rel { padding-left: var(--space-4); border-left: var(--route-stroke) solid var(--route-b); color: var(--color-fg); font-weight: var(--weight-bold); }
+.tests-wrap { display: grid; gap: var(--space-3); align-content: start; }
+.tests-wrap h4 { margin: 0; }
+.tests { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); margin: 0; }
+.tests div { padding: var(--space-3); border: var(--border-2) solid var(--color-fg); border-radius: var(--radius-md); background: var(--color-bg); }
+.tests dt { font-size: var(--text-xs); color: var(--color-fg-muted); line-height: var(--leading-snug); }
+.tests dd { margin: var(--space-1) 0 0; font: var(--weight-black) var(--text-2xl) / 1 var(--font-display); font-variant-numeric: tabular-nums; }
+.tests .tests-axe { grid-column: 1 / -1; border-color: var(--status-good); background: var(--status-good-bg); }
+.tests .tests-axe dd { color: var(--status-good); }
+
+@media (prefers-reduced-motion: reduce) {
+  .route, .route:hover { transition: none; transform: none; }
+}
+
+@media (min-width: 48rem) {
+  .line--x::before { background: repeating-linear-gradient(90deg, var(--route-b) 0 14px, var(--route-q) 14px 28px); }
+  .route--x { grid-column: 1 / -1; grid-template-columns: 1.6fr 1fr; }
+  .route--x .route-letter { font-size: 14rem; }
+}
+@media (min-width: 64rem) {
+  .hero { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: center; column-gap: var(--space-10); }
+  .hero-art { width: 100%; margin: 0; }
+}

@@ -9,6 +9,7 @@ Sitio central del portafolio con pestañas **Inicio**, **API**, **Sala de espera
 | **B** Backend | API de oportunidad de citas | enlace a https://datos-abiertos-citas-api.onrender.com (y `/api` redirige allí) | [datos-abiertos-citas-api](https://github.com/Jairo-Andres/datos-abiertos-citas-api) |
 | **D** Datos | La sala de espera | `/sala/` (rewrite a https://sala-de-espera-bice.vercel.app) | [sala-de-espera](https://github.com/Jairo-Andres/sala-de-espera) |
 | **Q** QA | Radar .gov.co | `/radar/` (rewrite a https://radar-gov-co.vercel.app) | [radar-gov-co](https://github.com/Jairo-Andres/radar-gov-co) |
+| **BQ** Transbordo | MiTiendaW (catálogo con pedidos por WhatsApp) | enlace a https://catalogo-whatsapp-sandy.vercel.app (Next.js usa rutas absolutas, por eso no va como rewrite) | [catalogo-whatsapp](https://github.com/Jairo-Andres/catalogo-whatsapp) |
 
 Cada proyecto sigue con su propio repo, workflows, README y despliegue. Este repo solo tiene la portada y las reglas de `vercel.json`.
 
