@@ -362,15 +362,15 @@ html { scroll-padding-top: var(--space-4); }
 .game img { display: block; width: 100%; height: auto; }
 
 /* Teléfonos (Atínele) */
-.phones { display: grid; justify-items: center; max-width: 24rem; aspect-ratio: 1 / 1.02; }
+.phones { display: grid; justify-items: center; max-width: 22rem; aspect-ratio: 1 / 1.08; }
 .phone {
-  position: absolute; top: 0; width: 46%; overflow: hidden;
+  position: absolute; top: 0; width: 52%; aspect-ratio: 1 / 2; overflow: hidden;
   border: 7px solid var(--device); border-radius: 1.6rem; background: var(--device);
   box-shadow: 0 0 0 2px var(--color-border-strong), 14px 18px 0 -2px color-mix(in srgb, var(--c) 55%, transparent);
 }
-.phone img { border-radius: 1.05rem; }
-.phone--back { left: 2%; transform: translateZ(-50px) rotate(-5deg); top: 5%; }
-.phone--front { right: 2%; transform: translateZ(40px) rotate(3deg); }
+.phone img { height: 100%; object-fit: cover; object-position: top center; border-radius: 1.05rem; background: #fff; }
+.phone--back { left: 4%; transform: translateZ(-50px) rotate(-6deg); top: 6%; opacity: 0.96; }
+.phone--front { right: 4%; transform: translateZ(40px) rotate(3deg); }
 
 /* Pantallas (La mina, TrailMates) */
 .screens { max-width: 34rem; padding-bottom: 16%; }
@@ -463,3 +463,10 @@ html { scroll-padding-top: var(--space-4); }
 @media (min-width: 75rem) {
   .facts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
+
+/* Pie oficial */
+.footer-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-4); }
+.footer-brand { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-fg); text-decoration: none; font: var(--weight-display) var(--text-md) / 1 var(--font-display); }
+.footer-brand img { border-radius: var(--radius-sign); }
+.footer-links { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); }
+.footer-links a { display: inline-flex; align-items: center; min-height: var(--tap-min); color: var(--color-fg); font-weight: var(--weight-bold); }

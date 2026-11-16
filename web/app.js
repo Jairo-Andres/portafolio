@@ -106,8 +106,11 @@ const EN = {
   kickerQ: "Line Q · QA",
   sumQ: "A weekly automated audit of 30 Colombian government websites: accessibility (WCAG 2.1 AA), mobile, performance and best practices, published as a ranking. Normal visitor traffic only: a few pages per site, with pauses and respecting robots.txt.",
   demoQ: "See the radar",
-  footer1: "Contact:",
-  footer2: 'Shared visual identity "Routes": each project is a line with its own color and letter. Static site on Vercel.',
+  footerNav: "Legal and contact links",
+  terms: "Terms of use",
+  privacy: "Privacy",
+  rights: "All rights reserved.",
+  footerSrc: "Each project's code has its own license in its repository.",
 };
 
 const STORE_KEY = "ja-lang";
@@ -253,3 +256,6 @@ document.querySelectorAll(".game").forEach((card) => {
     tilt.style.removeProperty("--rx");
   });
 });
+
+const anio = document.getElementById("anio");
+if (anio) anio.textContent = String(new Date().getFullYear());
