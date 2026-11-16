@@ -12,7 +12,7 @@ Sitio central del portafolio. La cabecera lleva a tres secciones: **Inicio**, **
 | **BQ** Transbordo | MiTiendaW (catálogo con pedidos por WhatsApp) | enlace a https://catalogo-whatsapp-sandy.vercel.app (Next.js usa rutas absolutas, por eso no va como rewrite) | [catalogo-whatsapp](https://github.com/Jairo-Andres/catalogo-whatsapp) |
 | **F** Frontend · juego | Atínele (juego diario colombiano) | enlace a https://atinele.vercel.app | [atinele](https://github.com/Jairo-Andres/atinele) |
 | **G** Juego en tiempo real | La mina sin fondo | enlace a https://mina-sin-fondo.vercel.app | [mina-sin-fondo](https://github.com/Jairo-Andres/mina-sin-fondo) |
-| **3D** Cooperativo | TrailMates | próximamente (aún sin despliegue) | [trailmates](https://github.com/Jairo-Andres/trailmates) |
+| **3D** Cooperativo | TrailMates (beta en desarrollo) | enlace a https://trailmates-beta.vercel.app | [trailmates](https://github.com/Jairo-Andres/trailmates) |
 
 Cada proyecto sigue con su propio repo, workflows, README y despliegue. Este repo solo tiene la portada y las reglas de `vercel.json`.
 
@@ -72,7 +72,7 @@ npm run verificar -- --local # capturas + axe + rewrites (necesita `npm run buil
 
 ## English
 
-Central portfolio site. The header leads to **Home**, **Projects** and **Games** (Atínele, La mina sin fondo and TrailMates, coming soon). It presents the three projects as lines of one system (shared "Routes" visual identity): **B** Backend = open-data API (linked, `/api` redirects to it), **D** Data = The waiting room (`/sala/`, rewrite to https://sala-de-espera-bice.vercel.app), **Q** QA = Radar .gov.co (`/radar/`, rewrite to https://radar-gov-co.vercel.app). Each project keeps its own repo, workflows, README and deployment.
+Central portfolio site. The header leads to **Home**, **Projects** and **Games** (Atínele, La mina sin fondo and the TrailMates beta). It presents the three projects as lines of one system (shared "Routes" visual identity): **B** Backend = open-data API (linked, `/api` redirects to it), **D** Data = The waiting room (`/sala/`, rewrite to https://sala-de-espera-bice.vercel.app), **Q** QA = Radar .gov.co (`/radar/`, rewrite to https://radar-gov-co.vercel.app). Each project keeps its own repo, workflows, README and deployment.
 
 ### Decisions
 
