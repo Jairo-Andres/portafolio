@@ -2,7 +2,7 @@
 
 **Español** · [English](#english)
 
-Sitio central del portafolio con pestañas **Inicio**, **API**, **Sala de espera** y **Radar**. Presenta los tres proyectos como líneas de un mismo sistema (identidad visual "Rutas"):
+Sitio central del portafolio. La cabecera lleva a tres secciones: **Inicio**, **Proyectos** (las rutas B, D, Q y BQ) y **Juegos** (líneas F, G y 3D). Cada proyecto es una línea de un mismo sistema (identidad visual "Rutas"):
 
 | Línea | Proyecto | Dónde se ve | Repo |
 |---|---|---|---|
@@ -10,6 +10,9 @@ Sitio central del portafolio con pestañas **Inicio**, **API**, **Sala de espera
 | **D** Datos | La sala de espera | `/sala/` (rewrite a https://sala-de-espera-bice.vercel.app) | [sala-de-espera](https://github.com/Jairo-Andres/sala-de-espera) |
 | **Q** QA | Radar .gov.co | `/radar/` (rewrite a https://radar-gov-co.vercel.app) | [radar-gov-co](https://github.com/Jairo-Andres/radar-gov-co) |
 | **BQ** Transbordo | MiTiendaW (catálogo con pedidos por WhatsApp) | enlace a https://catalogo-whatsapp-sandy.vercel.app (Next.js usa rutas absolutas, por eso no va como rewrite) | [catalogo-whatsapp](https://github.com/Jairo-Andres/catalogo-whatsapp) |
+| **F** Frontend · juego | Atínele (juego diario colombiano) | enlace a https://atinele.vercel.app | [atinele](https://github.com/Jairo-Andres/atinele) |
+| **G** Juego en tiempo real | La mina sin fondo | enlace a https://mina-sin-fondo.vercel.app | [mina-sin-fondo](https://github.com/Jairo-Andres/mina-sin-fondo) |
+| **3D** Cooperativo | TrailMates | próximamente (aún sin despliegue) | [trailmates](https://github.com/Jairo-Andres/trailmates) |
 
 Cada proyecto sigue con su propio repo, workflows, README y despliegue. Este repo solo tiene la portada y las reglas de `vercel.json`.
 
@@ -20,6 +23,8 @@ Cada proyecto sigue con su propio repo, workflows, README y despliegue. Este rep
 - **`/sala` y `/radar` sin barra final redirigen a `/sala/` y `/radar/`.** Ambos proyectos cargan sus recursos con rutas relativas (`./assets/...`, `data/...`); sin la barra el navegador los pediría en la raíz y la página saldría rota.
 - **Identidad común sin modificar.** `web/tokens.css`, `web/components.css`, `favicon.*`, iconos y `marca/` son copias exactas de las que usa `radar-gov-co/web`. Los estilos propios van aparte en `web/styles.css`.
 - **ES/EN** con `?lang=en` o el botón EN/ES; los enlaces a la Sala y al Radar conservan el idioma. Modo claro/oscuro según el sistema, mobile-first y `prefers-reduced-motion` (el "tren" del mapa de líneas no se mueve).
+
+- **Capturas de los juegos en `web/capturas/`** (WebP, unos 140 KB en total, con carga diferida). Si un juego cambia mucho, se reemplaza la imagen con el mismo nombre.
 
 ### Estructura
 
@@ -67,7 +72,7 @@ npm run verificar -- --local # capturas + axe + rewrites (necesita `npm run buil
 
 ## English
 
-Central portfolio site with **Home**, **API**, **Waiting room** and **Radar** tabs. It presents the three projects as lines of one system (shared "Routes" visual identity): **B** Backend = open-data API (linked, `/api` redirects to it), **D** Data = The waiting room (`/sala/`, rewrite to https://sala-de-espera-bice.vercel.app), **Q** QA = Radar .gov.co (`/radar/`, rewrite to https://radar-gov-co.vercel.app). Each project keeps its own repo, workflows, README and deployment.
+Central portfolio site. The header leads to **Home**, **Projects** and **Games** (Atínele, La mina sin fondo and TrailMates, coming soon). It presents the three projects as lines of one system (shared "Routes" visual identity): **B** Backend = open-data API (linked, `/api` redirects to it), **D** Data = The waiting room (`/sala/`, rewrite to https://sala-de-espera-bice.vercel.app), **Q** QA = Radar .gov.co (`/radar/`, rewrite to https://radar-gov-co.vercel.app). Each project keeps its own repo, workflows, README and deployment.
 
 ### Decisions
 

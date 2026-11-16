@@ -34,13 +34,11 @@
       <span class="brand-name">Jairo Sierra</span>
     </a>
     <button class="lang" type="button" id="lang-toggle" lang="en" aria-label="Read in English">EN</button>
-    <nav class="tabs" aria-label="Proyectos" data-i18n-aria="navLabel">
+    <nav class="tabs" aria-label="Secciones" data-i18n-aria="navLabel">
       <ul>
-        <li><a href="/" aria-current="page" data-i18n="tabHome">Inicio</a></li>
-        <li><a href="https://datos-abiertos-citas-api.onrender.com" data-lang-link><span class="ja-bullet ja-bullet--b" aria-hidden="true">B</span> API</a></li>
-        <li><a href="/sala/" data-lang-link><span class="ja-bullet ja-bullet--d" aria-hidden="true">D</span> <span data-i18n="tabSala">Sala de espera</span></a></li>
-        <li><a href="/radar/" data-lang-link><span class="ja-bullet ja-bullet--q" aria-hidden="true">Q</span> Radar</a></li>
-        <li><a href="https://catalogo-whatsapp-sandy.vercel.app/"><span class="ja-bullet bullet-x" aria-hidden="true">BQ</span> MiTiendaW</a></li>
+        <li><a href="#contenido" data-nav="inicio" aria-current="page" data-i18n="tabHome">Inicio</a></li>
+        <li><a href="#rutas" data-nav="rutas"><span class="nav-dots" aria-hidden="true"><i class="d-b"></i><i class="d-d"></i><i class="d-q"></i></span> <span data-i18n="tabProjects">Proyectos</span></a></li>
+        <li><a href="#juegos" data-nav="juegos"><span class="nav-dots" aria-hidden="true"><i class="d-f"></i><i class="d-g"></i><i class="d-t"></i></span> <span data-i18n="tabGames">Juegos</span></a></li>
       </ul>
     </nav>
   </header>
@@ -107,7 +105,11 @@
     </section>
 
     <section class="routes" id="rutas" aria-labelledby="routes-title">
-      <h2 id="routes-title" class="ja-display" data-i18n="routesTitle">Las rutas</h2>
+      <header class="routes-head">
+        <p class="ja-label section-kicker"><span class="nav-dots" aria-hidden="true"><i class="d-b"></i><i class="d-d"></i><i class="d-q"></i></span> <span data-i18n="routesKicker">Las rutas · Backend, Datos y QA</span></p>
+        <h2 id="routes-title" class="ja-display" data-i18n="routesTitle">Proyectos</h2>
+        <p class="section-lead" data-i18n="routesLead">Cuatro proyectos publicados: cada uno tiene su repositorio, sus pruebas y su despliegue en planes gratis, y se abre desde aquí.</p>
+      </header>
 
       <article class="route route--b ja-card ja-card--raised" aria-labelledby="r-b">
         <span class="route-letter" aria-hidden="true">B</span>
@@ -177,6 +179,133 @@
             <div><dt data-i18n="tE2e">De punta a punta</dt><dd>9</dd></div>
             <div class="tests-axe"><dt data-i18n="tAxe">Incumplimientos axe (WCAG 2.2 AA)</dt><dd>0</dd></div>
           </dl>
+        </div>
+      </article>
+    </section>
+
+    <section class="games ja-topo" id="juegos" aria-labelledby="games-title">
+      <header class="games-head">
+        <p class="ja-label section-kicker"><span class="nav-dots" aria-hidden="true"><i class="d-f"></i><i class="d-g"></i><i class="d-t"></i></span> <span data-i18n="gamesKicker">Líneas F, G y 3D · Juegos web</span></p>
+        <h2 id="games-title" class="ja-display" data-i18n="gamesTitle">Juegos</h2>
+        <p class="section-lead" data-i18n="gamesLead">Tres juegos hechos desde cero para el navegador: uno diario y colombiano para el celular, uno de minería con multijugador en tiempo real y uno cooperativo en 3D. Con la misma regla que los proyectos de arriba: pruebas automáticas, accesibilidad y planes gratis.</p>
+      </header>
+
+      <ol class="game-line" aria-label="Línea de juegos" data-i18n-aria="gameLine">
+        <li class="gl-f"><a href="#g-atinele"><span class="gl-name">Atínele</span> <span class="gl-state" data-i18n="stateLive">En línea</span></a></li>
+        <li class="gl-g"><a href="#g-mina"><span class="gl-name">La mina sin fondo</span> <span class="gl-state" data-i18n="stateLive">En línea</span></a></li>
+        <li class="gl-t is-soon"><a href="#g-trailmates"><span class="gl-name">TrailMates</span> <span class="gl-state" data-i18n="stateSoon">Próximamente</span></a></li>
+      </ol>
+
+      <!-- Atínele · Línea F -->
+      <article class="game game--f" id="g-atinele" aria-labelledby="t-atinele">
+        <div class="game-media" aria-hidden="true">
+          <div class="tilt phones">
+            <figure class="phone phone--back"><img src="capturas/atinele-municipio.webp" alt="" width="390" height="780" loading="lazy" decoding="async"></figure>
+            <figure class="phone phone--front"><img src="capturas/atinele-sopa.webp" alt="" width="390" height="780" loading="lazy" decoding="async"></figure>
+          </div>
+        </div>
+        <div class="game-body">
+          <p class="ja-label route-kicker"><span class="ja-bullet bullet-f" aria-hidden="true">F</span> <span data-i18n="kickerF">Línea F · Frontend · Juego diario</span></p>
+          <div class="game-title">
+            <h3 id="t-atinele">Atínele</h3>
+            <span class="badge badge--live" data-i18n="stateLive">En línea</span>
+          </div>
+          <p class="game-tagline" data-i18n="tagF">La palabra del día, a la colombiana.</p>
+          <p data-i18n="sumF">Un juego diario inspirado en Wordle: cada día hay retos nuevos, iguales para todos según la fecha de Colombia, y al terminar se copia una cuadrícula de emojis sin spoilers para pegarla en WhatsApp.</p>
+          <ul class="modes" aria-label="Modos de juego" data-i18n-aria="modesLabel">
+            <li data-i18n="modeF1">Palabra</li><li data-i18n="modeF2">Municipio con mapa</li><li data-i18n="modeF3">Dicho</li><li data-i18n="modeF4">Categoría</li><li data-i18n="modeF5">Sopa de letras</li><li data-i18n="modeF6">Crucigrama</li>
+          </ul>
+          <dl class="facts">
+            <div><dt data-i18n="fF1">Modos diarios</dt><dd>6</dd></div>
+            <div><dt data-i18n="fF2">Intentos por reto</dt><dd>6</dd></div>
+            <div><dt data-i18n="fF3">Pruebas unitarias</dt><dd>120</dd></div>
+            <div><dt data-i18n="fF4">Servidores, cuentas o cookies</dt><dd>0</dd></div>
+          </dl>
+          <p class="game-note" data-i18n="noteF">El municipio usa las coordenadas del DANE (DIVIPOLA) y un mapa SVG hecho a mano. Los dichos citan la publicación de donde salen.</p>
+          <ul class="stack" aria-label="Tecnologías" data-i18n-aria="stack">
+            <li>TypeScript</li><li>Vite</li><li>SVG</li><li>Vitest</li><li>Playwright + axe</li><li>GitHub Actions</li><li>Vercel</li>
+          </ul>
+          <div class="route-links">
+            <a class="ja-btn ja-btn--primary btn-f" href="https://atinele.vercel.app/" data-i18n="playF">Jugar Atínele</a>
+            <a class="ja-btn ja-btn--ghost" href="https://github.com/Jairo-Andres/atinele" data-i18n="repo">Código en GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- La mina sin fondo · Línea G -->
+      <article class="game game--g" id="g-mina" aria-labelledby="t-mina">
+        <div class="game-media" aria-hidden="true">
+          <div class="tilt screens">
+            <figure class="screen screen--main"><img src="capturas/mina-menu.webp" alt="" width="960" height="393" loading="lazy" decoding="async"></figure>
+            <figure class="screen screen--mini screen--a"><img src="capturas/mina-magnate.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><figcaption data-i18n="capMagnate">Magnate</figcaption></figure>
+            <figure class="screen screen--mini screen--b"><img src="capturas/mina-rieles.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><figcaption data-i18n="capRails">Rieles de la Mina</figcaption></figure>
+          </div>
+        </div>
+        <div class="game-body">
+          <p class="ja-label route-kicker"><span class="ja-bullet bullet-g" aria-hidden="true">G</span> <span data-i18n="kickerG">Línea G · Juego en tiempo real</span></p>
+          <div class="game-title">
+            <h3 id="t-mina">La mina sin fondo</h3>
+            <span class="badge badge--live" data-i18n="stateLive">En línea</span>
+          </div>
+          <p class="game-tagline" data-i18n="tagG">Excava, vende, mejora y baja más hondo.</p>
+          <p data-i18n="sumG">Un juego de minería para celular y PC con tres partes: Magnate, un tycoon donde pozos, ascensor y transporte llevan el mineral al almacén; Rieles de la Mina, carreras de vagonetas por niveles con taller de mejoras; y Carrera versus, la misma pista para 2 a 4 jugadores en línea.</p>
+          <dl class="facts">
+            <div><dt data-i18n="fG1">Modos de juego</dt><dd>3</dd></div>
+            <div><dt data-i18n="fG2">Mundos de rieles</dt><dd>7</dd></div>
+            <div><dt data-i18n="fG3">Jugadores en versus</dt><dd>2–4</dd></div>
+            <div><dt data-i18n="fG4">Pruebas unitarias</dt><dd>163</dd></div>
+          </dl>
+          <p class="game-note" data-i18n="noteG">La lógica del juego es pura y determinista (semillas, física a 60 Hz) y está separada del dibujo: así dos jugadores en versus generan el mismo mapa. Todos los gráficos se dibujan con código. Sin servidor autoritativo: es para jugar con amigos, no para un ranking competitivo.</p>
+          <ul class="stack" aria-label="Tecnologías" data-i18n-aria="stack">
+            <li>TypeScript</li><li>Phaser 4</li><li>Supabase · Auth · Realtime</li><li>Vitest + fast-check</li><li>Playwright</li><li>Vercel</li>
+          </ul>
+          <div class="route-links">
+            <a class="ja-btn ja-btn--primary btn-g" href="https://mina-sin-fondo.vercel.app/" data-i18n="playG">Jugar La mina sin fondo</a>
+            <a class="ja-btn ja-btn--ghost" href="https://github.com/Jairo-Andres/mina-sin-fondo" data-i18n="repo">Código en GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- TrailMates · Línea 3D -->
+      <article class="game game--t" id="g-trailmates" aria-labelledby="t-trailmates">
+        <div class="game-media" aria-hidden="true">
+          <div class="tilt screens">
+            <figure class="screen screen--main"><img src="capturas/trailmates-valle.webp" alt="" width="960" height="540" loading="lazy" decoding="async"></figure>
+            <figure class="screen screen--mini screen--a"><img src="capturas/trailmates-montana.webp" alt="" width="480" height="270" loading="lazy" decoding="async"><figcaption data-i18n="capMountain">Montaña</figcaption></figure>
+            <figure class="screen screen--mini screen--b"><img src="capturas/trailmates-pantano.webp" alt="" width="480" height="270" loading="lazy" decoding="async"><figcaption data-i18n="capSwamp">Pantano</figcaption></figure>
+          </div>
+        </div>
+        <div class="game-body">
+          <p class="ja-label route-kicker"><span class="ja-bullet bullet-t" aria-hidden="true">3D</span> <span data-i18n="kickerT">Línea 3D · Cooperativo multijugador</span></p>
+          <div class="game-title">
+            <h3 id="t-trailmates">TrailMates</h3>
+            <span class="badge badge--soon" data-i18n="stateSoon">Próximamente</span>
+          </div>
+          <p class="game-tagline" data-i18n="tagT">Off-road en equipo: nadie llega solo.</p>
+          <p data-i18n="sumT">Un juego de conducción off-road en 3D para hasta 4 jugadores. Se crea una sala, se comparte un código de 5 letras y se cruzan juntos valles, montañas nevadas y pantanos: bajarse a empujar, remolcar con el cabestrante, reparar e ir de pasajero.</p>
+          <table class="maps">
+            <caption class="ja-label" data-i18n="mapsCaption">Cada mapa pide un vehículo</caption>
+            <thead><tr><th scope="col" data-i18n="mapsH1">Mapa</th><th scope="col" data-i18n="mapsH2">Reto</th><th scope="col" data-i18n="mapsH3">Vehículo ideal</th></tr></thead>
+            <tbody>
+              <tr><th scope="row" data-i18n="map1">Valle</th><td data-i18n="map1r">Tierra y colinas</td><td>buggy</td></tr>
+              <tr><th scope="row" data-i18n="map2">Montaña</th><td data-i18n="map2r">Cañón con hielo</td><td>jeep</td></tr>
+              <tr><th scope="row" data-i18n="map3">Pantano</th><td data-i18n="map3r">Vado y puente</td><td>pickup</td></tr>
+            </tbody>
+          </table>
+          <dl class="facts">
+            <div><dt data-i18n="fT1">Jugadores</dt><dd>1–4</dd></div>
+            <div><dt data-i18n="fT2">Vehículos · mapas</dt><dd>4 · 3</dd></div>
+            <div><dt data-i18n="fT3">Pruebas e2e</dt><dd>12/12</dd></div>
+            <div><dt data-i18n="fT4">FPS en calidad Media</dt><dd>72</dd></div>
+          </dl>
+          <p class="game-note" data-i18n="noteT">El anfitrión simula la física (Rapier en WASM, paso fijo a 60 Hz) y el servidor solo reenvía mensajes; los invitados no descargan la física. En las pruebas, 4 navegadores quedan sincronizados a menos de 0,5 m. Arte y sonido generados por código. Los 72 FPS son el tope de la pantalla de prueba (RTX 3050).</p>
+          <ul class="stack" aria-label="Tecnologías" data-i18n-aria="stack">
+            <li>TypeScript</li><li>Three.js</li><li>Rapier 3D · WASM</li><li>Node + ws</li><li>pnpm workspaces</li><li>Vitest</li><li>Playwright</li><li>GitHub Actions</li>
+          </ul>
+          <div class="route-links">
+            <span class="ja-btn ja-btn--secondary is-disabled" data-i18n="soonT">Demo en línea muy pronto</span>
+            <a class="ja-btn ja-btn--ghost" href="https://github.com/Jairo-Andres/trailmates" data-i18n="repo">Código en GitHub</a>
+          </div>
         </div>
       </article>
     </section>
