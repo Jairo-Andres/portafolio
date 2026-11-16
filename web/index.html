@@ -193,7 +193,7 @@
       <ol class="game-line" aria-label="Línea de juegos" data-i18n-aria="gameLine">
         <li class="gl-f"><a href="#g-atinele"><span class="gl-name">Atínele</span> <span class="gl-state" data-i18n="stateLive">En línea</span></a></li>
         <li class="gl-g"><a href="#g-mina"><span class="gl-name">La mina sin fondo</span> <span class="gl-state" data-i18n="stateLive">En línea</span></a></li>
-        <li class="gl-t is-soon"><a href="#g-trailmates"><span class="gl-name">TrailMates</span> <span class="gl-state" data-i18n="stateSoon">Próximamente</span></a></li>
+        <li class="gl-t is-soon"><a href="#g-trailmates"><span class="gl-name">TrailMates</span> <span class="gl-state" data-i18n="stateBeta">Beta en desarrollo</span></a></li>
       </ol>
 
       <!-- Atínele · Línea F -->
@@ -279,7 +279,7 @@
           <p class="ja-label route-kicker"><span class="ja-bullet bullet-t" aria-hidden="true">3D</span> <span data-i18n="kickerT">Línea 3D · Cooperativo multijugador</span></p>
           <div class="game-title">
             <h3 id="t-trailmates">TrailMates</h3>
-            <span class="badge badge--soon" data-i18n="stateSoon">Próximamente</span>
+            <span class="badge badge--soon" data-i18n="stateBeta">Beta en desarrollo</span>
           </div>
           <p class="game-tagline" data-i18n="tagT">Off-road en equipo: nadie llega solo.</p>
           <p data-i18n="sumT">Un juego de conducción off-road en 3D para hasta 4 jugadores. Se crea una sala, se comparte un código de 5 letras y se cruzan juntos valles, montañas nevadas y pantanos: bajarse a empujar, remolcar con el cabestrante, reparar e ir de pasajero.</p>
@@ -298,12 +298,12 @@
             <div><dt data-i18n="fT3">Pruebas e2e</dt><dd>12/12</dd></div>
             <div><dt data-i18n="fT4">FPS en calidad Media</dt><dd>72</dd></div>
           </dl>
-          <p class="game-note" data-i18n="noteT">El anfitrión simula la física (Rapier en WASM, paso fijo a 60 Hz) y el servidor solo reenvía mensajes; los invitados no descargan la física. En las pruebas, 4 navegadores quedan sincronizados a menos de 0,5 m. Arte y sonido generados por código. Los 72 FPS son el tope de la pantalla de prueba (RTX 3050).</p>
+          <p class="game-note" data-i18n="noteT">Todavía está en desarrollo, así que puede cambiar o fallar. El anfitrión simula la física (Rapier en WASM, paso fijo a 60 Hz) y el servidor solo reenvía mensajes; los invitados no descargan la física. En las pruebas, 4 navegadores quedan sincronizados a menos de 0,5 m. Arte y sonido generados por código. Los 72 FPS son el tope de la pantalla de prueba (RTX 3050).</p>
           <ul class="stack" aria-label="Tecnologías" data-i18n-aria="stack">
             <li>TypeScript</li><li>Three.js</li><li>Rapier 3D · WASM</li><li>Node + ws</li><li>pnpm workspaces</li><li>Vitest</li><li>Playwright</li><li>GitHub Actions</li>
           </ul>
           <div class="route-links">
-            <span class="ja-btn ja-btn--secondary is-disabled" data-i18n="soonT">Demo en línea muy pronto</span>
+            <a class="ja-btn ja-btn--primary btn-t" href="https://trailmates-beta.vercel.app/" data-i18n="playT">Probar la beta</a>
             <a class="ja-btn ja-btn--ghost" href="https://github.com/Jairo-Andres/trailmates" data-i18n="repo">Código en GitHub</a>
           </div>
         </div>
