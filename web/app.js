@@ -11,7 +11,7 @@ const EN = {
   tabSala: "Waiting room",
   eyebrow: "Systems Engineering · Pontificia Universidad Javeriana · Bogotá",
   heroTitle: 'Three lines, one system: <span class="hl-b">backend</span>, <span class="hl-d">data</span> and <span class="hl-q">QA</span>.',
-  lead: "I'm Jairo Andrés Sierra, a final-semester Systems Engineering student. I'm looking for my first junior role as a full-stack developer, QA Automation engineer or Data Analyst.",
+  lead: "I'm Jairo Andrés Sierra, a final-semester Systems Engineering student. I'm looking for my first junior role as a Full-Stack developer, QA Automation engineer or Data Analyst.",
   lead2: "I'm passionate about all three because they complement each other. Building a complete product, from the database and the API to what users see on screen, is only half the job: you have to test it to know it works well, and analyze the data to understand how it's used and what can be improved. To me, building, testing and analyzing are parts of one cycle, and that's the kind of engineer I want to be.",
   lead3: "Below are the projects where I put it into practice. For each one I explain what it's about and which technologies I used. Scroll to explore them!",
   available: "Available for a first junior role",
