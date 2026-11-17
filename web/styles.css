@@ -470,3 +470,29 @@ html { scroll-padding-top: var(--space-4); }
 .footer-brand img { border-radius: var(--radius-sign); }
 .footer-links { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); }
 .footer-links a { display: inline-flex; align-items: center; min-height: var(--tap-min); color: var(--color-fg); font-weight: var(--weight-bold); }
+
+/* ==========================================================================
+   v5: degradado con tinte en las tarjetas, barra de lectura y badge de estado
+   ========================================================================== */
+/* Degradado lineal sutil: el color de la línea al 15 % desde una esquina, fundido con el fondo de la tarjeta */
+.route { background: linear-gradient(160deg, color-mix(in srgb, var(--c) 15%, transparent), var(--color-bg) 60%); }
+.game-body { background: linear-gradient(160deg, color-mix(in srgb, var(--c) 15%, transparent), var(--color-bg) 60%); }
+
+/* Barra de progreso de lectura con los colores de las líneas */
+.read-progress {
+  position: fixed; inset: 0 0 auto 0; z-index: 50; height: 4px; pointer-events: none;
+  background: linear-gradient(90deg, var(--route-b), var(--route-d), var(--route-q));
+  transform-origin: 0 50%; transform: scaleX(0);
+}
+@supports (animation-timeline: scroll()) {
+  .read-progress { animation: leer linear both; animation-timeline: scroll(root); }
+}
+@keyframes leer { to { transform: scaleX(1); } }
+
+/* Badge de estado */
+.status-pill {
+  display: inline-flex; align-items: center; gap: var(--space-2); justify-self: start; width: fit-content;
+  padding: 0.4rem 0.9rem; border: var(--border-1) solid var(--color-border-strong); border-radius: var(--radius-pill);
+  background: var(--color-surface); color: var(--color-fg); font-size: 14px; font-weight: var(--weight-bold); line-height: 1.2;
+}
+.status-dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--status-good); box-shadow: 0 0 0 3px var(--status-good-bg); }
