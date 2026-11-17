@@ -496,3 +496,9 @@ html { scroll-padding-top: var(--space-4); }
   background: var(--color-surface); color: var(--color-fg); font-size: 14px; font-weight: var(--weight-bold); line-height: 1.2;
 }
 .status-dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--status-good); box-shadow: 0 0 0 3px var(--status-good-bg); }
+
+/* Botón oculto del contador: se ve como texto normal del pie */
+.secret { all: unset; cursor: pointer; border-radius: var(--radius-sm); }
+.secret:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+.visitas { display: inline-block; margin-left: var(--space-2); padding: 0.1em 0.6em; border-radius: var(--radius-pill); background: var(--color-surface-2); color: var(--color-fg); font: var(--weight-bold) var(--text-xs) / 1.6 var(--font-mono); }
+.visitas[hidden] { display: none; }

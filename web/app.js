@@ -112,6 +112,8 @@ const EN = {
   terms: "Terms of use",
   privacy: "Privacy",
   rights: "All rights reserved.",
+  visitsLoading: "Counting visits…",
+  visitsError: "Couldn't load the counter.",
   footerSrc: "Each project's code has its own license in its repository.",
 };
 
@@ -273,3 +275,43 @@ if (!CSS.supports("animation-timeline: scroll()")) {
   addEventListener("resize", update);
   update();
 }
+
+// Contador de visitas (oculto): al tocar "© año Jairo Andrés Sierra" se muestra.
+// Se guarda en Supabase con una función que solo suma 1; la tabla no se puede leer ni escribir directo.
+// Una visita por pestaña (sessionStorage) y una persona por navegador (localStorage).
+const SB_URL = "https://vfvsdztgkndeundarbzw.supabase.co/rest/v1/rpc/";
+const SB_KEY = "sb_publishable_wydKFMrxdrh1H7Bf__Zu5A_mummutTw"; // clave pública: solo permite llamar las dos funciones del contador
+const rpc = (fn, body = {}) =>
+  fetch(SB_URL + fn, {
+    method: "POST",
+    headers: { apikey: SB_KEY, "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  }).then((r) => (r.ok ? r.json() : Promise.reject(r.status))).then((rows) => rows[0]);
+
+const leer = (st, k) => { try { return st.getItem(k); } catch { return "1"; } };
+const poner = (st, k) => { try { st.setItem(k, "1"); } catch { /* sin almacenamiento */ } };
+let conteo = null;
+if (!leer(sessionStorage, "ja-visita")) {
+  const nueva = !leer(localStorage, "ja-persona");
+  conteo = rpc("portafolio_registrar_visita", { nueva_persona: nueva })
+    .then((c) => { poner(sessionStorage, "ja-visita"); poner(localStorage, "ja-persona"); return c; })
+    .catch(() => null);
+}
+
+const botonContador = document.getElementById("contador");
+const salida = document.getElementById("visitas");
+botonContador.addEventListener("click", async () => {
+  const abrir = salida.hidden;
+  salida.hidden = !abrir;
+  botonContador.setAttribute("aria-expanded", String(abrir));
+  if (!abrir) return;
+  const en = document.documentElement.lang === "en";
+  salida.textContent = en ? EN.visitsLoading : "Contando visitas…";
+  const c = (await conteo) ?? (await rpc("portafolio_contar_visitas").catch(() => null));
+  conteo = null;
+  if (!c) { salida.textContent = en ? EN.visitsError : "No se pudo cargar el contador."; return; }
+  const n = (x) => Number(x).toLocaleString(en ? "en-US" : "es-CO");
+  salida.textContent = en
+    ? `${n(c.visitas)} visits · ${n(c.personas)} people`
+    : `${n(c.visitas)} visitas · ${n(c.personas)} personas`;
+});
