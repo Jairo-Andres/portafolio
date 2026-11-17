@@ -278,7 +278,12 @@ if (!CSS.supports("animation-timeline: scroll()")) {
 
 // Contador de visitas (oculto): al tocar "© año Jairo Andrés Sierra" se muestra.
 // Se guarda en Supabase con una función que solo suma 1; la tabla no se puede leer ni escribir directo.
-// Una visita por pestaña (sessionStorage) y una persona por navegador (localStorage).
+// Filtros para no inflar el conteo:
+//  - Una visita por navegador y por día (fecha de Bogotá), guardada en localStorage:
+//    recargar con F5, abrir otra pestaña o volver el mismo día no suma.
+//  - Una persona por navegador (primera vez que entra).
+//  - Tus visitas: abre una vez el sitio con ?yo=1 en cada navegador tuyo y ese navegador
+//    deja de contar para siempre (?yo=0 lo vuelve a activar).
 const SB_URL = "https://vfvsdztgkndeundarbzw.supabase.co/rest/v1/rpc/";
 const SB_KEY = "sb_publishable_wydKFMrxdrh1H7Bf__Zu5A_mummutTw"; // clave pública: solo permite llamar las dos funciones del contador
 const rpc = (fn, body = {}) =>
@@ -288,14 +293,23 @@ const rpc = (fn, body = {}) =>
     body: JSON.stringify(body),
   }).then((r) => (r.ok ? r.json() : Promise.reject(r.status))).then((rows) => rows[0]);
 
-const leer = (st, k) => { try { return st.getItem(k); } catch { return "1"; } };
-const poner = (st, k) => { try { st.setItem(k, "1"); } catch { /* sin almacenamiento */ } };
+const leer = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
+const poner = (k, v) => { try { localStorage.setItem(k, v); return true; } catch { return false; } };
+const quitar = (k) => { try { localStorage.removeItem(k); } catch { /* sin almacenamiento */ } };
+
+const yo = new URLSearchParams(location.search).get("yo");
+if (yo === "1") poner("ja-dueno", "1");
+if (yo === "0") quitar("ja-dueno");
+
+const hoy = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Bogota" }).format(new Date()); // AAAA-MM-DD
+const esDueno = leer("ja-dueno") === "1";
+const esBot = navigator.webdriver || /bot|crawl|spider|preview|lighthouse/i.test(navigator.userAgent);
 let conteo = null;
-if (!leer(sessionStorage, "ja-visita")) {
-  const nueva = !leer(localStorage, "ja-persona");
-  conteo = rpc("portafolio_registrar_visita", { nueva_persona: nueva })
-    .then((c) => { poner(sessionStorage, "ja-visita"); poner(localStorage, "ja-persona"); return c; })
-    .catch(() => null);
+// Solo cuenta si se puede guardar la marca del día: sin almacenamiento cada recarga contaría.
+if (!esDueno && !esBot && leer("ja-visita-dia") !== hoy && poner("ja-visita-dia", hoy)) {
+  const nueva = leer("ja-persona") !== "1";
+  poner("ja-persona", "1");
+  conteo = rpc("portafolio_registrar_visita", { nueva_persona: nueva }).catch(() => null);
 }
 
 const botonContador = document.getElementById("contador");
